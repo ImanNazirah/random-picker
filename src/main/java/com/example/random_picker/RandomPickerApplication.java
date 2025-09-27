@@ -17,9 +17,11 @@ import java.util.List;
 @SpringBootApplication
 public class RandomPickerApplication implements CommandLineRunner {
 
-	private static final List<String> SELECTION_POOL = List.of(
-			"Apple", "Banana", "Orange", "Grapes", "Mango", "Peach", "Strawberry", "Pineapple"
-	);
+	private final DataConfig dataConfig;
+
+	public RandomPickerApplication(DataConfig dataConfig) {
+		this.dataConfig = dataConfig;
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(RandomPickerApplication.class, args);
@@ -63,7 +65,8 @@ public class RandomPickerApplication implements CommandLineRunner {
 
 			try {
 				int count = Integer.parseInt(input);
-				List<String> shuffled = new ArrayList<>(SELECTION_POOL);
+				List<String> shuffled = dataConfig.getSelectionPool();
+
 				Collections.shuffle(shuffled);
 				List<String> selected = shuffled.subList(0, count);
 
@@ -91,7 +94,7 @@ public class RandomPickerApplication implements CommandLineRunner {
 				System.out.print("\rPicking items: " + bar + " " + percent + "%");
 				Thread.sleep(delayMs);
 			}
-			System.out.println(); // Move to next line after complete
+			System.out.println();
 		} else{
 			int barLength = 120;
 			char[] spinner = {'|', '/', '-', '\\'};
@@ -103,7 +106,7 @@ public class RandomPickerApplication implements CommandLineRunner {
 				System.out.print("\rPicking items: " + bar + " " + percent + "% " + spinChar);
 				Thread.sleep(delayMs);
 			}
-			System.out.println(); // Move to next line after complete
+			System.out.println();
 		}
 
 	}

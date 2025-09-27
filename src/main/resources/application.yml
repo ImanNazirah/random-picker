@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: random-picker
+  main:
+    banner-mode: off
+
+data:
+  selection-pool:
+    - Apple
+    - Banana
+    - Orange
+    - Grapes
+    - Mango
+    - Peach
+    - Strawberry
+    - Pineapple
