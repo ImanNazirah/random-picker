@@ -10,7 +10,6 @@ import java.io.Console;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -70,10 +69,10 @@ public class RandomPickerApplication implements CommandLineRunner {
 				Collections.shuffle(shuffled);
 				List<String> selected = shuffled.subList(0, count);
 
-				printProgressBar(30, 50, false); // 30 steps with 50ms delay = ~1.5s total
+				printProgressBar(30, 50, false);
 
-				System.out.println(" Selected items:");
-				selected.forEach(item -> System.out.println(" - " + item));
+				selected.forEach(item -> printBigText(item));
+
 			} catch (NumberFormatException e) {
 				System.out.println("Invalid input. Please enter a valid number.");
 			} catch (InterruptedException e) {
@@ -111,5 +110,12 @@ public class RandomPickerApplication implements CommandLineRunner {
 
 	}
 
+	private void printBigText(String text) {
+		String upper = text.toUpperCase();
+		String border = "*".repeat(upper.length() + 8);
 
+		System.out.println(border);
+		System.out.println("*   " + upper + "   *");
+		System.out.println(border);
+	}
 }
