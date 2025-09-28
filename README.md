@@ -14,7 +14,15 @@ This is a simple command-line tool built with **Spring Boot** using `CommandLine
 
 - On application startup, Spring Boot runs any beans that implement `CommandLineRunner`.
 - The `DataConfig` class binds a list of selection pool from `application.yml`.
+- build the project
+```bash 
+./mvnw clean install
+```
+- run the project
 
+```bash 
+./run.sh $1 $2
+```
 #### Option for Text to ASCII Art Generator
 
 -https://patorjk.com/software/taag
