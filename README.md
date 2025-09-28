@@ -23,8 +23,11 @@ This is a simple command-line tool built with **Spring Boot** using `CommandLine
 ```bash 
 ./run.sh $1 $2
 ```
+
+![Output](https://raw.githubusercontent.com/ImanNazirah/ImanNazirah/refs/heads/main/docs/output-random-picker.gif)
+
+
 #### Option for Text to ASCII Art Generator
 
 -https://patorjk.com/software/taag
 - figlet
-
